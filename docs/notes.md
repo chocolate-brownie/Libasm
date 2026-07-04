@@ -35,7 +35,8 @@ going through the bus
 - 4 bytes
 
 7) On the Intel X86-64 architecture, how many bytes can be stored at each address?
-- 8 bytes
+- 1 bytes each
+- full mem 8 bytes
 
 8) Given the 32-bit hex 004C4B4016 what is the:
     1. Least Significant Byte (LSB): 40
@@ -43,12 +44,13 @@ going through the bus
 
 9) Given the 32-bit hex 004C4B4016, show the little-endian memory layout showing
 each byte in memory.
+40 4B 4C 00
 ```
-Memory address  |   Stored byte
-&x + 0          |   0x00 LSB
-&x + 0          |   0x4C
-&x + 0          |   0x4B
-&x + 0          |   0x40 MSB
+Memory address  | Stored byte
+&x + 0          | 0x40   LSB
+&x + 1          | 0x4B
+&x + 2          | 0x4C
+&x + 3          | 0x00   MSB
 ```
 
 10) Draw a picture of the layout for the rax register.
@@ -74,13 +76,28 @@ rax [                |      | ah | al ]
 13) Which register points to the current top of the stack?
 - Stack pointer (RSP)
 
-14) If al is set to 0516 and ax is set to 000716, eax is set to 0000002016, and rax is set
-to 000000000000000016, and show the final complete contents of the complete
+14) If al is set to 05(16) and ax is set to 0007(16), eax is set to 0000 0020(16), and rax is set
+to 0000000000000000(16), and show the final complete contents of the complete
 rax register.
 
-15) If the rax register is set to 81,985,529,216,486,89510 (123456789ABCDEF16),
+rax:  [63.......................................................0]
+eax:                                  [31.......................0]
+ax:                                                    [15......0]
+al:                                                         [7..0]
+
+rax = 0000 000 0000 0005
+
+
+15) If the rax register is set to 81,985,529,216,486,89510 (123456789ABCDEF(16)),
 what are the contents of the following registers in hex?
     1. al
     2. ax
     3. eax
     4. rax
+
+0123 4567 89AB CDEF
+
+rax:  [0123 4567 89AB CDEF]
+eax:                                  [89AB CDEF]
+ax:                                                [CDEF]
+al:                                                         [EF]
