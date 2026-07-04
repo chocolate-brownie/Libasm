@@ -69,8 +69,10 @@ rax [                |      | ah | al ]
     8. r14w: 16
 
 12) Which register points to the next instruction to be executed?
+- Instruction pointer register (RIP)
 
 13) Which register points to the current top of the stack?
+- Stack pointer (RSP)
 
 14) If al is set to 0516 and ax is set to 000716, eax is set to 0000002016, and rax is set
 to 000000000000000016, and show the final complete contents of the complete
